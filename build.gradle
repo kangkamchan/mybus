@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.2'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'net'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+    all*.exclude module: 'spring-boot-starter-logging'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    //log4j2
+    implementation ('org.springframework.boot:spring-boot-starter-log4j2'){
+        exclude group: 'org.springframework.boot', module: 'spring-boot-start-logging'
+    }
+
+    //WebClient 사용
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // 기본 Jackson 라이브러리 (JSON 직렬화 & 역직렬화)
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
+    // JSON 파싱을 위한 코어 및 어노테이션 지원
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.0'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.0'
+    // Optional: Java 8 날짜/시간 API 지원 (java.time.*)
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.0'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
