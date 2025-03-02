@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* container (최대 폭 768px) */
+#container {
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/* 헤더, 내비게이션 */
+#header {
+    background-color: #f0f0f0;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn-nav {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    border-bottom: 3px solid transparent;
+}
+
+.btn-nav.active {
+    border-bottom: 3px solid #333;
+    color: #333;
+}
+
+/* 메인 영역 */
+#main {
+    padding: 20px;
+}
+
+/* 검색 페이지 전체 컨테이너 */
+.station-container {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+/* 1) 검색창 영역 */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 5px; /* 인풋과 버튼 사이 간격 */
+}
+
+#station-search-word {
+    flex: 1; /* 너비를 최대로 */
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn-search {
+    background-color: #ccc;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-search:hover {
+    background-color: #bbb;
+}
+
+/* 2) 검색 결과 목록 영역 */
+.search-result-container {
+    /* 결과가 많을 때 스크롤이 생기도록 */
+    max-height: 220px; /* 필요에 따라 조절 */
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+/* 개별 검색 결과(정류소+버스 목록+버튼)를 감싸는 컨테이너 */
+.search-result-content {
+    display: flex;
+    justify-content: space-between; /* 왼쪽(텍스트), 오른쪽(버튼) */
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px; /* 결과 간 간격 */
+}
+
+/* 검색 결과 텍스트 영역 */
+.search-result-text {
+    display: flex;
+    flex-direction: column; /* 정류소 이름 / 버스 번호들 */
+}
+
+/* 한 줄씩 구분하기 위한 래퍼 */
+.search-result-row {
+    margin-bottom: 5px; /* 각 줄 사이 약간 간격 */
+}
+
+/* 정류소 이름 */
+.station-name {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* 버스 번호들 */
+.bus-id {
+    margin-right: 8px;
+    color: #333;
+}
+
+/* 오른쪽 선택 버튼 */
+.search-result-btn {
+    margin-left: 10px;
+}
+
+.btn-choice {
+    background-color: #1E90FF; /* 파란색 계열 */
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-choice:hover {
+    background-color: #0c6fd0; /* 좀 더 진한 파랑 */
+}
+
+/* 3) 지도 영역 */
+.map-container {
+    height: 200px; /* 지도 높이 예시 */
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* 실제 지도 표시용 (예: 카카오맵, 네이버맵 등) */
+#map {
+    width: 100%;
+    height: 100%;
+}

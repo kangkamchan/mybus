@@ -1,52 +1,294 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>자주 사용하는 버스 정류장</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 p-4">
-<!-- 메인 페이지 -->
-<div id="main" class="max-w-md mx-auto">
-  <div class="bg-white p-4 rounded-lg shadow">
-    <div class="flex items-center mb-2">
-      <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">내 집 앞 버스</button>
-      <button class="bg-gray-300 px-4 py-2 rounded-lg">검색</button>
-    </div>
-  </div>
-
-  <!-- 저장된 정류장 목록 -->
-  <div class="space-y-4 mt-4">
-    <!-- 정류장 컨테이너 -->
-    <div class="bg-white p-4 rounded-lg shadow">
-      <div class="flex justify-between items-center mb-2">
-        <h2 class="text-lg font-bold">000정류소 (----방면)</h2>
-        <button class="bg-gray-300 px-3 py-1 rounded-lg">삭제</button>
+    <div class = "station-container">
+      <div class = "station-container-header">
+        <div>정류소이름(~~방면)</div><button class="btn-gray">삭제</button>
       </div>
-      <div class="text-sm text-gray-600 overflow-y-auto h-32 border p-2">
-        <p>0000 번 (---- 방향) <span class="text-red-500">5분 3정류장</span></p>
-        <p>0000 번 (---- 방향) <span class="text-red-500">5분 3정류장</span></p>
-        <p>0000 번 (---- 방향) <span class="text-red-500">5분 3정류장</span></p>
-        <p>0000 번 (---- 방향) <span class="text-red-500">5분 3정류장</span></p>
-        <p>0000 번 (---- 방향) <span class="text-red-500">5분 3정류장</span></p>
-      </div>
-    </div>
-
-    <div class="bg-white p-4 rounded-lg shadow">
-      <div class="flex justify-between items-center mb-2">
-        <h2 class="text-lg font-bold">000정류소 (----방면)</h2>
-        <button class="bg-gray-300 px-3 py-1 rounded-lg">삭제</button>
-      </div>
-      <div class="text-sm text-gray-600 overflow-y-auto h-32 border p-2">
-        <p>0000 번 (---- 방향) <span class="text-red-500">5분 3정류장</span></p>
-        <p>0000 번 (---- 방향) <span class="text-red-500">5분 3정류장</span></p>
-        <p>0000 번 (---- 방향) <span class="text-red-500">5분 3정류장</span></p>
-        <p>0000 번 (---- 방향) <span class="text-red-500">5분 3정류장</span></p>
-        <p>0000 번 (---- 방향) <span class="text-red-500">5분 3정류장</span></p>
+      <div class = "station-container-content">
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-</body>
-</html>
+    <div class = "station-container">
+      <div class = "station-container-header">
+        <div>정류소이름(~~방면)</div><button class="btn-gray">삭제</button>
+      </div>
+      <div class = "station-container-content">
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class = "station-container">
+      <div class = "station-container-header">
+        <div>정류소이름(~~방면)</div><button class="btn-gray">삭제</button>
+      </div>
+      <div class = "station-container-content">
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class = "station-container">
+      <div class = "station-container-header">
+        <div>정류소이름(~~방면)</div><button class="btn-gray">삭제</button>
+      </div>
+      <div class = "station-container-content">
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class = "station-container">
+      <div class = "station-container-header">
+        <div>정류소이름(~~방면)</div><button class="btn-gray">삭제</button>
+      </div>
+      <div class = "station-container-content">
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class = "station-container">
+      <div class = "station-container-header">
+        <div>정류소이름(~~방면)</div><button class="btn-gray">삭제</button>
+      </div>
+      <div class = "station-container-content">
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class = "station-container">
+      <div class = "station-container-header">
+        <div>정류소이름(~~방면)</div><button class="btn-gray">삭제</button>
+      </div>
+      <div class = "station-container-content">
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+        <div class="bus-information">
+          <div class="bus-information-right"><img alt=""></div>
+          <div class="bus-information-left">
+            <span class="bus-id">0000번</span><span class="bus-direction">(~~방향)</span>
+            <span class="bus-time">5분</span><span class="bus-location">3정류장</span>
+          </div>
+        </div>
+      </div>
+    </div>

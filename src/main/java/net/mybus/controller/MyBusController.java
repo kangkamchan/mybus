@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MyBusController {
     @GetMapping("/")
     public String myBus() {
-        return "main";
+        return "index";
+    }
+    @GetMapping("/search")
+    public String search() {
+        return "search";
     }
 }

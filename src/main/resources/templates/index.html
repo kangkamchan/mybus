@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/search.css">
+</head>
+<body>
+<div id="container">
+    <header id = "header">
+        <nav id = "nav">
+            <div class = "btn-nav active" id="btnMain">내집앞<br>버스</div>
+            <div class = "btn-nav" id="btnSearch">검색</div>
+        </nav>
+    </header>
+    <main id = "main">
+
+    </main>
+</div>
+<script>
+    const mainElement = document.getElementById("main");
+    const btnMain = document.getElementById("btnMain");
+    const btnSearch = document.getElementById("btnSearch");
+    function loadHtmlContent(url,element){
+        fetch(url)
+            .then(response => {
+                if(!response.ok){
+                    throw new Error("응답 오류");
+                }
+                return response.text();
+            })
+            .then(html => {
+                element.innerHTML = html;
+            })
+            .catch(error => {
+                console.error("로딩 중 오류 : ",error);
+                element.innerHTML = `<p>컨텐츠 로딩 중 일시적 오류 발생</p>`;
+            });
+    }
+    btnMain.addEventListener("click",()=>{
+        btnMain.classList.add("active");
+        btnSearch.classList.remove("active");
+        loadHtmlContent("/main.html",mainElement);
+    });
+    btnSearch.addEventListener("click",()=>{
+        btnSearch.classList.add("active");
+        btnMain.classList.remove("active");
+        loadHtmlContent("/station-search.html",mainElement);
+    });
+    loadHtmlContent("/main.html",mainElement);
+</script>
+</body>
+</html>
