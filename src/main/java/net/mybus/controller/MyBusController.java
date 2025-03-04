@@ -7,12 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/bus")
 public class MyBusController {
-    @GetMapping("/")
+    @GetMapping
     public String myBus() {
         return "index";
-    }
-    @GetMapping("/search")
-    public String search() {
-        return "search";
     }
 }
