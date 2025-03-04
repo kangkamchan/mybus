@@ -148,7 +148,7 @@ body {
 
 /* 3) 지도 영역 */
 .map-container {
-    height: 200px; /* 지도 높이 예시 */
+    height: 400px; /* 지도 높이 예시 */
     background-color: #eee;
     border: 1px solid #ddd;
     border-radius: 6px;

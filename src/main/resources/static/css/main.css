@@ -186,3 +186,7 @@ body {
 .bus-information .bus-id {
     font-weight: bold;
 }
+
+#searchContainer{
+    display: none;
+}

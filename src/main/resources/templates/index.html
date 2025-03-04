@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5vrqpvsmmj"></script>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <link rel="stylesheet" type="text/css" href="/css/search.css">
 </head>
@@ -10,45 +11,88 @@
 <div id="container">
     <header id = "header">
         <nav id = "nav">
-            <div class = "btn-nav active" id="btnMain">내집앞<br>버스</div>
+            <div class = "btn-nav active" id="btnMain">내집앞버스</div>
             <div class = "btn-nav" id="btnSearch">검색</div>
         </nav>
     </header>
     <main id = "main">
-
+        <div id="mainContainer"></div>
+        <div id="searchContainer">
+            <div class="search-container">
+                <input type="text" id="station-search-word">
+                <button class="btn-search">검색</button>
+            </div>
+            <div class="search-result-container">
+                <div class="search-result-content">
+                    <div class="search-result-text">
+                        <div class="search-result-row">
+                            <span class="station-name">정류소 이름(000000방면)</span>
+                        </div>
+                        <div class="search-result-row">
+                            <span class="bus-id-search">000번</span>
+                            <span class="bus-id-search">000번</span>
+                            <span class="bus-id-search">000번</span>
+                            <span class="bus-id-search">000번</span>
+                            <span class="bus-id-search">000번</span>
+                        </div>
+                    </div>
+                    <div class="search-result-btn">
+                        <button class="btn-choice">선택</button>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container">
+                <div id="map"></div>
+            </div>
+        </div>
     </main>
 </div>
 <script>
+    //실제 컨텐츠가 들어갈 main 태그 영역
     const mainElement = document.getElementById("main");
+    //메인페이지로 전환하는 버튼
     const btnMain = document.getElementById("btnMain");
+    //검색페이지로 전환하는 버튼
     const btnSearch = document.getElementById("btnSearch");
-    function loadHtmlContent(url,element){
-        fetch(url)
-            .then(response => {
-                if(!response.ok){
-                    throw new Error("응답 오류");
-                }
-                return response.text();
-            })
-            .then(html => {
-                element.innerHTML = html;
-            })
-            .catch(error => {
-                console.error("로딩 중 오류 : ",error);
-                element.innerHTML = `<p>컨텐츠 로딩 중 일시적 오류 발생</p>`;
-            });
+    //메인페이지 컨텐츠 들어가는 div 태그
+    const mainContainer = document.getElementById("mainContainer");
+    //검색페이지 컨텐츠 들어가는 div 태그
+    const searchContainer = document.getElementById("searchContainer");
+    //네이버지도 객체
+    let map = new naver.maps.Map('map', {
+        center: new naver.maps.LatLng(37.5459155767, 127.0148446166),
+        zoom: 16
+    });
+    /**
+     * 요소의 display 속성을 원하는 값으로 변경
+     *
+     * @param element 변경할 html 요소
+     * @param {string} attribute 변경할 속성 값
+     */
+    function changeDisplay(element, attribute){
+        element.style.display = attribute;
     }
-    btnMain.addEventListener("click",()=>{
-        btnMain.classList.add("active");
-        btnSearch.classList.remove("active");
-        loadHtmlContent("/main.html",mainElement);
-    });
+    //1. 메인에 표시할 정류소 목록 DB 에서 가져오는 함수
+    //2. 정류소 목록의 정류소 ID로 정류소정보, 노선정보, 도착정보 가져오는 함수
+    //3. 가져온 정보들을 html 렌더링하는 함수
+    //4. 메인, 검색페이지 전환
     btnSearch.addEventListener("click",()=>{
-        btnSearch.classList.add("active");
+        changeDisplay(mainContainer,"none");
         btnMain.classList.remove("active");
-        loadHtmlContent("/station-search.html",mainElement);
+        changeDisplay(searchContainer,"block");
+        btnSearch.classList.add("active");
     });
-    loadHtmlContent("/main.html",mainElement);
+    btnMain.addEventListener("click",()=>{
+        changeDisplay(searchContainer,"none");
+        btnSearch.classList.remove("active");
+        changeDisplay(mainContainer,"block");
+        btnMain.classList.add("active");
+    });
+    //5. 정류소 명칭으로 정류소 목록 검색하는 함수
+    //6. 검색 목록 html 렌더링 하는 함수
+    //7. 선택한 정류소 위치를 지도에 표시하는 함수
+    //8. 정류소 선택하면 DB 에 등록/삭제 하는 함수
+
 </script>
 </body>
 </html>
