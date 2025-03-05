@@ -16,5 +16,5 @@ public class BusStop {
     private String posX;
     private String posY;
     private String arsId;
-    private List<BusRouteArriveInfo> stationArriveInfoList;
+    private List<BusRouteArriveInfo> busRouteArriveInfoList;
 }
