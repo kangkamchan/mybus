@@ -89,10 +89,30 @@
         btnMain.classList.add("active");
     });
     //5. 정류소 명칭으로 정류소 목록 검색하는 함수
+    async function busStopSearchResult(searchKeyword){
+        try{
+            const response =await fetch(`/buses/bus-stops/${searchKeyword}`,{
+                method:"GET",
+            });
+            if(!response.ok){
+                console.log("response not ok")
+                const message = await response.message;
+                console.log(message);
+                return
+            }
+            const result = await response.json();
+            const data = result.data;
+            const message = result.message;
+            console.log(result);
+            console.log(data);
+            console.log(message);
+        }catch(error){
+            console.error(error);
+        }
+    }
     //6. 검색 목록 html 렌더링 하는 함수
     //7. 선택한 정류소 위치를 지도에 표시하는 함수
     //8. 정류소 선택하면 DB 에 등록/삭제 하는 함수
-
 </script>
 </body>
 </html>
