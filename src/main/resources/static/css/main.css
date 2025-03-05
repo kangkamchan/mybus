@@ -50,7 +50,7 @@ body {
 }
 
 /* 정류장 컨테이너 */
-.station-container {
+.bus-stop-container {
     margin-bottom: 15px;
     background-color: #fafafa;
     border: 1px solid #ddd;
@@ -59,14 +59,14 @@ body {
 }
 
 /* 정류소 이름 & 삭제 버튼(헤더) */
-.station-container-header {
+.bus-stop-container-header {
     display: flex;
     justify-content: space-between; /* 좌우로 배치 */
     align-items: center;
     margin-bottom: 10px;
 }
 
-.station-container-header div {
+.bus-stop-container-header div {
     font-weight: bold;
     font-size: 16px;
 }
@@ -90,7 +90,7 @@ body {
   - 여러 .bus-information을 한 줄에 배치하되,
     공간이 부족하면 줄바꿈
 */
-.station-container-content {
+.bus-stop-container-content {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;

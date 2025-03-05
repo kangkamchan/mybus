@@ -50,7 +50,7 @@ body {
 }
 
 /* 검색 페이지 전체 컨테이너 */
-.station-container {
+.bus-stop-container {
     background-color: #fafafa;
     border: 1px solid #ddd;
     border-radius: 6px;
@@ -66,7 +66,7 @@ body {
     gap: 5px; /* 인풋과 버튼 사이 간격 */
 }
 
-#station-search-word {
+#bus-stop-search-word {
     flex: 1; /* 너비를 최대로 */
     padding: 8px;
     border: 1px solid #ddd;
@@ -117,7 +117,7 @@ body {
 }
 
 /* 정류소 이름 */
-.station-name {
+.bus-stop-name {
     font-weight: bold;
     font-size: 15px;
 }

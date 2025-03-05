@@ -1,0 +1,17 @@
+1. controller
+    - MyBusController : 페이지 이동 컨트롤러
+    - MyBusApiController : 클라이언트와 통신할 API 컨트롤러, MyBusService 호출
+    - UserController : 회원가입, 로그인, 로그아웃 처리할 컨트롤러, UserService 호출
+2. service
+    - MyBusService : 공공데이터 API 와 통신해서 데이터를 받아옴
+    - UserService : 회원가입, 로그인, 로그아웃 로직
+3. mapper
+    - MyBusMapper : 정류소정보 데이터베이스 접근
+    - UserMapper : 회원정보 데이터베이스 접근
+4. DTO
+    - MyBusDTO<T> : 공공데이터 API 와 통신할 데이터 객체,ComMsgHeader,MsgBody<T>,MsgHeader 필드 구성
+    - ComMsgHeader, MsgBody<T>, MsgHeader : 공공데이터 API 형식에 맞추기 위해 필요한 클래스
+    - BusStop : 정류소 정보 클래스
+    - BusRouteArriveInfo : 버스 노선 도착정보 클래스
+5. Config
+    - WebClientConfig : Server to Server 통신을 위한 WebClient 설정 클래스
