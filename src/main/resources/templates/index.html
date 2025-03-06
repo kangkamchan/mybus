@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
     <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5vrqpvsmmj"></script>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
@@ -23,6 +24,13 @@
                 <button id="btnSearch" class="btn-search">검색</button>
             </div>
             <div id="searchResultContainer" class="search-result-container">
+                <div class="search-result-content no-result">
+                    <div class="search-result-text">
+                        <div class="search-result-row">
+                            <span class="no-result-text">검색 결과가 없습니다.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="map-container">
                 <div id="map"></div>
@@ -46,7 +54,8 @@
         center: new naver.maps.LatLng(37.5459155767, 127.0148446166),
         zoom: 16
     });
-
+    //지도에 표시될 마커 관리할 변수
+    let tempMarker;
     //1. 메인에 표시할 정류소 목록 DB 에서 가져오는 함수
     //2. 정류소 목록의 정류소 ID로 정류소정보, 노선정보, 도착정보 가져오는 함수
     //3. 가져온 정보들을 html 렌더링하는 함수
@@ -81,6 +90,9 @@
     const searchResultContainer = document.getElementById("searchResultContainer");
     //검색버튼 이벤트리스너
     btnSearch.addEventListener("click",async () => {
+        if(tempMarker){
+            tempMarker.setMap(null);
+        }
         //검색어 입력 상태 확인
         if (!searchInput.value) {
             alert("검색어를 입력하세요.");
@@ -92,7 +104,26 @@
         //검색결과 리스트 html 출력
         searchResultContainer.innerHTML = searchResultToHTML(searchResult);
         //지도에 표시
+        const searchResultContents = document.getElementsByClassName("search-result-content");
 
+        if(searchResultContents){
+            tempMarker = createMarkerFromSearchResultList(searchResult,searchResult[0].arsId,map);
+            let tempElement = searchResultContents[0];
+            tempElement.classList.add("active");
+            Array.from(searchResultContents).forEach(element=>{
+                const arsId = element.getAttribute("data-arsId");
+                element.addEventListener("click",(e)=>{
+                    e.stopPropagation();
+                    if(tempElement){
+                        tempElement.classList.remove("active");
+                    }
+                    element.classList.add("active");
+                    tempElement = element;
+                    tempMarker.setMap(null);
+                    tempMarker = createMarkerFromSearchResultList(searchResult,arsId,map);
+                });
+            });
+        }
     });
     async function busStopSearchResult(searchKeyword){
         try{
@@ -120,14 +151,23 @@
     //6. 검색 목록 html 렌더링 하는 함수
     function searchResultToHTML(searchResultList){
         let HTML = '';
-        console.log("searchResultList",searchResultList);
+        if(!searchResultList){
+            return `<div class="search-result-content no-result">
+                        <div class="search-result-text">
+                            <div class="search-result-row">
+                                <span class="no-result-text">검색 결과가 없습니다.</span>
+                            </div>
+                        </div>
+                    </div>`;
+        }
         searchResultList.forEach((searchResult)=>{
             busRouteArriveInfoList = searchResult.busRouteArriveInfoList;
             HTML += `
                 <div class="search-result-content" data-arsId="${searchResult.arsId}">
                     <div class="search-result-text">
                         <div class="search-result-row">
-                            <span class="bus-stop-name">${searchResult.stNm}(${searchResult.arsId}${busRouteArriveInfoList ? ', ' + busRouteArriveInfoList[0].nxtStn + ' 방면' : ''})</span>
+                            <span class="bus-stop-name">${searchResult.stNm}</span><br>
+                            <span class="bus-stop-description">(${searchResult.arsId}${busRouteArriveInfoList ? ', ' + busRouteArriveInfoList[0].nxtStn + ' 방면' : ''})</span>
                         </div>
                         <div class="search-result-row">
             `;
@@ -149,7 +189,18 @@
         });
         return HTML;
     }
-    //7. 선택한 정류소 위치를 지도에 표시하는 함수
+    //7. 선택한 정류소 위치를 지도에 표시
+    //검색결과 리스트에서 arsId 에 해당하는 정류소의 Marker 객체 반환
+    function createMarkerFromSearchResultList(searchResultList,arsId,map){
+        const busStop = searchResultList.find(searchResult=>searchResult.arsId === arsId);
+        const latLng = new naver.maps.LatLng(busStop.tmY,busStop.tmX);
+        map.panTo(latLng);
+        return new naver.maps.Marker({
+            position: latLng,
+            map: map,
+            title:busStop.stNm
+        });
+    }
     //8. 정류소 선택하면 DB 에 등록/삭제 하는 함수
 </script>
 </body>
