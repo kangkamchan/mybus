@@ -1,0 +1,11 @@
+user 회원 테이블
+- userId : 회원 아이디 VARCHAR(20) NOT NULL PRIMARY KEY
+- password : 비밀번호 VARCHAR(200) NOT NULL, 단방향 암호화하여 저장
+- name : 회원 이름 VARCHAR(20) NOT NULL
+- provider : OAUTH 서비스 제공자 VARCHAR(20) NULL, 추후 OAUTH 도입시 활용
+- providerId : OAUTH 서비스에서 제공하는 식별자 VARCHAR(255) NULL, 추후 OAUTH 도입시 활용
+
+mybus 회원별 정류소 저장 테이블
+- userId : 회원 아이디 VARCHAR(20) NOT NULL user 테이블 FOREIGN KEY
+- busStopId : 정류소 아이디 CHAR(5) NOT NULL
+- userId + busStopId : 기본키

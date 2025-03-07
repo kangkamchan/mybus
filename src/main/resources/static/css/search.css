@@ -116,14 +116,18 @@ body {
 .search-result-text {
     display: flex;
     flex-direction: column; /* 정류소 이름 / 버스 번호들 */
-    width: 260px;
+    width: 300px;
 }
 
 /* 한 줄씩 구분하기 위한 래퍼 */
 .search-result-row {
     margin-bottom: 5px; /* 각 줄 사이 약간 간격 */
 }
-
+/*버스 번호 감싸는 래퍼*/
+.search-result-row:nth-child(2) {
+    display: flex;
+    flex-wrap: wrap;
+}
 /* 정류소 이름 */
 .bus-stop-name {
     font-weight: bold;
@@ -140,8 +144,8 @@ body {
     font-weight: bold;
     font-size: 15px;
 }
-/* 버스 번호들 */
-.bus-id {
+/*검색결과 버스 번호*/
+.bus-id-search {
     margin-right: 8px;
     color: #333;
 }

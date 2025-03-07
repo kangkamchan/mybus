@@ -69,6 +69,7 @@
     function changeDisplay(element, attribute){
         element.style.display = attribute;
     }
+    //버튼 클릭시 화면 전환 이벤트리스너
     btnSearchPage.addEventListener("click",()=>{
         changeDisplay(mainContainer,"none");
         btnMainPage.classList.remove("active");
@@ -88,7 +89,7 @@
     const searchInput = document.getElementById("searchInput");
     //검색결과 표시 컨테이너
     const searchResultContainer = document.getElementById("searchResultContainer");
-    //검색버튼 이벤트리스너
+    //검색버튼 클릭시 이벤트리스너
     btnSearch.addEventListener("click",async () => {
         if(tempMarker){
             tempMarker.setMap(null);
@@ -104,8 +105,8 @@
         //검색결과 리스트 html 출력
         searchResultContainer.innerHTML = searchResultToHTML(searchResult);
         //지도에 표시
+        //출력된 검색결과 html 요소들
         const searchResultContents = document.getElementsByClassName("search-result-content");
-
         if(searchResultContents){
             tempMarker = createMarkerFromSearchResultList(searchResult,searchResult[0].arsId,map);
             let tempElement = searchResultContents[0];
@@ -125,6 +126,12 @@
             });
         }
     });
+
+    /**
+     * API 서버를 통해 정류소 명칭에 검색 키워드 포함하는 정류소 정보를 조회함
+     * @param searchKeyword
+     * @returns {Array<*|null>}
+     */
     async function busStopSearchResult(searchKeyword){
         try{
             const response =await fetch(`/buses/bus-stops/${searchKeyword}`,{
@@ -138,17 +145,14 @@
             }
             const result = await response.json();
             const data = result.data;
-            const message = result.message;
-            console.log(result);
-            console.log(data);
-            console.log(message);
+            console.log(result.message);
             return data.msgBody.itemList;
         }catch(error){
             console.error(error);
             return null;
         }
     }
-    //6. 검색 목록 html 렌더링 하는 함수
+    //6. 검색 목록 html 렌더링
     function searchResultToHTML(searchResultList){
         let HTML = '';
         if(!searchResultList){
