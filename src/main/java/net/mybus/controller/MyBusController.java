@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MyBusController {
     @GetMapping
     public String myBus() {
-        return "index";
+        return "bus/index";
     }
 }
