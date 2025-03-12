@@ -1,4 +1,4 @@
-package net.mybus.dto;
+package net.mybus.dto.bus;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,10 +1,10 @@
-package net.mybus.service;
+package net.mybus.service.bus;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import net.mybus.dto.BusRouteArriveInfo;
-import net.mybus.dto.BusStop;
-import net.mybus.dto.MyBusDTO;
+import net.mybus.dto.bus.BusRouteArriveInfo;
+import net.mybus.dto.bus.BusStop;
+import net.mybus.dto.bus.MyBusDTO;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;

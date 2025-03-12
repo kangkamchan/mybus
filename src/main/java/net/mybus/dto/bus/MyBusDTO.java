@@ -1,4 +1,4 @@
-package net.mybus.dto;
+package net.mybus.dto.bus;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

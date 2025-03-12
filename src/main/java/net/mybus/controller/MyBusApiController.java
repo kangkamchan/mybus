@@ -2,10 +2,10 @@ package net.mybus.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import net.mybus.dto.ApiResponse;
-import net.mybus.dto.BusStop;
-import net.mybus.dto.MyBusDTO;
-import net.mybus.service.MyBusService;
+import net.mybus.dto.bus.ApiResponse;
+import net.mybus.dto.bus.BusStop;
+import net.mybus.dto.bus.MyBusDTO;
+import net.mybus.service.bus.MyBusService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
