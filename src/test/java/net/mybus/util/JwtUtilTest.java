@@ -38,6 +38,6 @@ public class JwtUtilTest {
         String subject = "thisthatthat";
         String token = jwtUtil.generateToken(subject);
         Claims claims = jwtUtil.parseToken(token);
-        assertTrue(jwtUtil.validateToken(token));
+        assertTrue(jwtUtil.validateToken(token, subject));
     }
 }

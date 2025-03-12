@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
+import java.net.URI;
 import java.security.Key;
 import java.util.Base64;
 import java.util.Date;
@@ -19,11 +20,19 @@ public class JwtUtil {
         this.key = Keys.hmacShaKeyFor(decoded);
     }
 
+    /**
+     * subject 로 jwt 생성
+     * @param subject jwt 생성 주체
+     * @return jwt 문자열
+     */
     public String generateToken(String subject){
         Date NOW = new Date();
         final long EXPIRATION_TIME = 3600_000L;
         Date EXPIRY_DATE = new Date(NOW.getTime() + EXPIRATION_TIME);
         return Jwts.builder()
+                .header()
+                .type("")
+                .and()
                 .subject(subject)
                 .issuedAt(NOW)
                 .expiration(EXPIRY_DATE)
@@ -31,6 +40,11 @@ public class JwtUtil {
                 .compact();
     }
 
+    /**
+     * jwt 파싱해서 클레임 정보를 반환함
+     * @param token 문자열
+     * @return Claims 객체
+     */
     public Claims parseToken(String token){
         return Jwts.parser()
                 .verifyWith((SecretKey)key)
@@ -39,10 +53,15 @@ public class JwtUtil {
                 .getPayload();
     }
 
-    public boolean validateToken(String token){
+    /**
+     * jwt 의 유효성을 검사함
+     * @param token jwt 문자열
+     * @return 유효하면 true 유효하지않으면 false
+     */
+    public boolean validateToken(String token, String subject){
         try{
             Claims claims = parseToken(token);
-            return !claims.getExpiration().before(new Date());
+            return !claims.getExpiration().before(new Date()) && claims.getSubject().equals(subject);
         }catch(Exception e){
             return false;
         }
